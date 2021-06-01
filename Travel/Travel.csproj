@@ -1,0 +1,387 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E3D78025-A154-4250-BF98-3385841003DB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Travel</RootNamespace>
+    <AssemblyName>Travel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\about.html" />
+    <Content Include="Content\contact.html" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\templatemo_misc.css" />
+    <Content Include="Content\css\templatemo_style.css" />
+    <Content Include="Content\events.html" />
+    <Content Include="Content\fonts\flexslider-icon.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\about_1.jpg" />
+    <Content Include="Content\images\about_2.jpg" />
+    <Content Include="Content\images\AjaxLoader.gif" />
+    <Content Include="Content\images\destination_1.jpg" />
+    <Content Include="Content\images\destination_2.jpg" />
+    <Content Include="Content\images\destination_3.jpg" />
+    <Content Include="Content\images\destination_4.jpg" />
+    <Content Include="Content\images\destination_5.jpg" />
+    <Content Include="Content\images\destination_6.jpg" />
+    <Content Include="Content\images\event_1.jpg" />
+    <Content Include="Content\images\event_2.jpg" />
+    <Content Include="Content\images\event_3.jpg" />
+    <Content Include="Content\images\event_4.jpg" />
+    <Content Include="Content\images\event_5.jpg" />
+    <Content Include="Content\images\grabbing.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\partners\partner1.png" />
+    <Content Include="Content\images\partners\partner2.png" />
+    <Content Include="Content\images\partners\partner3.png" />
+    <Content Include="Content\images\templatemo_header_1.jpg" />
+    <Content Include="Content\images\templatemo_header_2.jpg" />
+    <Content Include="Content\images\templatemo_header_3.jpg" />
+    <Content Include="Content\images\templatemo_header_4.jpg" />
+    <Content Include="Content\images\templatemo_slide_1.jpg" />
+    <Content Include="Content\images\templatemo_slide_2.jpg" />
+    <Content Include="Content\images\templatemo_slide_3.jpg" />
+    <Content Include="Content\index.html" />
+    <Content Include="Content\index.search.html" />
+    <Content Include="Content\js\bootstrap.js" />
+    <Content Include="Content\js\LoginModal.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\min\main.min.js" />
+    <Content Include="Content\js\min\plugins.min.js" />
+    <Content Include="Content\js\plugins.js" />
+    <Content Include="Content\js\vendor\jquery-1.11.0.min.js" />
+    <Content Include="Content\js\vendor\jquery.gmap3.min.js" />
+    <Content Include="Content\js\vendor\modernizr-2.6.1-respond-1.1.0.min.js" />
+    <Content Include="Content\services.html" />
+    <Content Include="Global.asax" />
+    <Content Include="Photos\SarahPic.png" />
+    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Views\about.html" />
+    <Content Include="Views\contact.html" />
+    <Content Include="Views\events.html" />
+    <Content Include="Views\index.html" />
+    <Content Include="Views\services.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\homeController.cs" />
+    <Compile Include="Controllers\TravellersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105272103360_IntiallMigration.cs" />
+    <Compile Include="Migrations\202105272103360_IntiallMigration.designer.cs">
+      <DependentUpon>202105272103360_IntiallMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105272214058_AddTravellerRecords.cs" />
+    <Compile Include="Migrations\202105272214058_AddTravellerRecords.designer.cs">
+      <DependentUpon>202105272214058_AddTravellerRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105302119453_AddAgencyTable.cs" />
+    <Compile Include="Migrations\202105302119453_AddAgencyTable.designer.cs">
+      <DependentUpon>202105302119453_AddAgencyTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105311603178_RemoveConfrimPasswordAgency.cs" />
+    <Compile Include="Migrations\202105311603178_RemoveConfrimPasswordAgency.designer.cs">
+      <DependentUpon>202105311603178_RemoveConfrimPasswordAgency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105311612540_AddAdminTable1.cs" />
+    <Compile Include="Migrations\202105311612540_AddAdminTable1.designer.cs">
+      <DependentUpon>202105311612540_AddAdminTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105311636444_AddadminRecords.cs" />
+    <Compile Include="Migrations\202105311636444_AddadminRecords.designer.cs">
+      <DependentUpon>202105311636444_AddadminRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105311735428_AddUserInfoTable.cs" />
+    <Compile Include="Migrations\202105311735428_AddUserInfoTable.designer.cs">
+      <DependentUpon>202105311735428_AddUserInfoTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105311818472_AddUserInfo.cs" />
+    <Compile Include="Migrations\202105311818472_AddUserInfo.designer.cs">
+      <DependentUpon>202105311818472_AddUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105312014579_ConvertToInt.cs" />
+    <Compile Include="Migrations\202105312014579_ConvertToInt.designer.cs">
+      <DependentUpon>202105312014579_ConvertToInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105312021588_addColumn.cs" />
+    <Compile Include="Migrations\202105312021588_addColumn.designer.cs">
+      <DependentUpon>202105312021588_addColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Agencies.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\UserInfo.cs" />
+    <Compile Include="Models\MyDbContext .cs" />
+    <Compile Include="Models\Traveller.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Content\config.rb" />
+    <Content Include="Content\fonts\flexslider-icon.eot" />
+    <Content Include="Content\fonts\flexslider-icon.ttf" />
+    <Content Include="Content\fonts\flexslider-icon.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\sass\bourbon\addons\_button.scss" />
+    <Content Include="Content\sass\bourbon\addons\_clearfix.scss" />
+    <Content Include="Content\sass\bourbon\addons\_font-family.scss" />
+    <Content Include="Content\sass\bourbon\addons\_hide-text.scss" />
+    <Content Include="Content\sass\bourbon\addons\_html5-input-types.scss" />
+    <Content Include="Content\sass\bourbon\addons\_position.scss" />
+    <Content Include="Content\sass\bourbon\addons\_prefixer.scss" />
+    <Content Include="Content\sass\bourbon\addons\_retina-image.scss" />
+    <Content Include="Content\sass\bourbon\addons\_size.scss" />
+    <Content Include="Content\sass\bourbon\addons\_timing-functions.scss" />
+    <Content Include="Content\sass\bourbon\addons\_triangle.scss" />
+    <Content Include="Content\sass\bourbon\css3\_animation.scss" />
+    <Content Include="Content\sass\bourbon\css3\_appearance.scss" />
+    <Content Include="Content\sass\bourbon\css3\_backface-visibility.scss" />
+    <Content Include="Content\sass\bourbon\css3\_background-image.scss" />
+    <Content Include="Content\sass\bourbon\css3\_background.scss" />
+    <Content Include="Content\sass\bourbon\css3\_border-image.scss" />
+    <Content Include="Content\sass\bourbon\css3\_border-radius.scss" />
+    <Content Include="Content\sass\bourbon\css3\_box-sizing.scss" />
+    <Content Include="Content\sass\bourbon\css3\_columns.scss" />
+    <Content Include="Content\sass\bourbon\css3\_flex-box.scss" />
+    <Content Include="Content\sass\bourbon\css3\_font-face.scss" />
+    <Content Include="Content\sass\bourbon\css3\_hidpi-media-query.scss" />
+    <Content Include="Content\sass\bourbon\css3\_image-rendering.scss" />
+    <Content Include="Content\sass\bourbon\css3\_inline-block.scss" />
+    <Content Include="Content\sass\bourbon\css3\_keyframes.scss" />
+    <Content Include="Content\sass\bourbon\css3\_linear-gradient.scss" />
+    <Content Include="Content\sass\bourbon\css3\_perspective.scss" />
+    <Content Include="Content\sass\bourbon\css3\_placeholder.scss" />
+    <Content Include="Content\sass\bourbon\css3\_radial-gradient.scss" />
+    <Content Include="Content\sass\bourbon\css3\_transform.scss" />
+    <Content Include="Content\sass\bourbon\css3\_transition.scss" />
+    <Content Include="Content\sass\bourbon\css3\_user-select.scss" />
+    <Content Include="Content\sass\bourbon\functions\_compact.scss" />
+    <Content Include="Content\sass\bourbon\functions\_flex-grid.scss" />
+    <Content Include="Content\sass\bourbon\functions\_grid-width.scss" />
+    <Content Include="Content\sass\bourbon\functions\_linear-gradient.scss" />
+    <Content Include="Content\sass\bourbon\functions\_modular-scale.scss" />
+    <Content Include="Content\sass\bourbon\functions\_px-to-em.scss" />
+    <Content Include="Content\sass\bourbon\functions\_radial-gradient.scss" />
+    <Content Include="Content\sass\bourbon\functions\_tint-shade.scss" />
+    <Content Include="Content\sass\bourbon\functions\_transition-property-name.scss" />
+    <Content Include="Content\sass\bourbon\helpers\_deprecated-webkit-gradient.scss" />
+    <Content Include="Content\sass\bourbon\helpers\_gradient-positions-parser.scss" />
+    <Content Include="Content\sass\bourbon\helpers\_linear-positions-parser.scss" />
+    <Content Include="Content\sass\bourbon\helpers\_radial-arg-parser.scss" />
+    <Content Include="Content\sass\bourbon\helpers\_radial-positions-parser.scss" />
+    <Content Include="Content\sass\bourbon\helpers\_render-gradients.scss" />
+    <Content Include="Content\sass\bourbon\helpers\_shape-size-stripper.scss" />
+    <Content Include="Content\sass\bourbon\_bourbon-deprecated-upcoming.scss" />
+    <Content Include="Content\sass\bourbon\_bourbon.scss" />
+    <Content Include="Content\sass\misc.scss" />
+    <Content Include="Content\sass\partials\_base.scss" />
+    <Content Include="Content\sass\partials\_content.scss" />
+    <Content Include="Content\sass\partials\_footer.scss" />
+    <Content Include="Content\sass\partials\_header.scss" />
+    <Content Include="Content\sass\partials\_placeholders.scss" />
+    <Content Include="Content\sass\partials\_reset.scss" />
+    <Content Include="Content\sass\partials\_sidebar.scss" />
+    <Content Include="Content\sass\partials\_slider.scss" />
+    <Content Include="Content\sass\partials\_vars.scss" />
+    <Content Include="Content\sass\styles.scss" />
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\Traveller.cshtml" />
+    <Content Include="Views\home\Index.cshtml" />
+    <Content Include="Views\config.rb" />
+    <Content Include="Views\Shared\Admin.cshtml" />
+    <Content Include="Views\Admin\AdminIndex.cshtml" />
+    <Content Include="Views\Admin\ViewTraveller.cshtml" />
+    <Content Include="Views\Admin\EditTraveller.cshtml" />
+    <Content Include="Views\Admin\CreateTraveller.cshtml" />
+    <Content Include="Views\Admin\DeleteTraveller.cshtml" />
+    <Content Include="Views\Admin\ViewAgency.cshtml" />
+    <Content Include="Views\Admin\CreateAgency.cshtml" />
+    <Content Include="Views\Admin\DeleteAgency.cshtml" />
+    <Content Include="Views\Admin\UsersPage.cshtml" />
+    <Content Include="Views\home\Login.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105272103360_IntiallMigration.resx">
+      <DependentUpon>202105272103360_IntiallMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105272214058_AddTravellerRecords.resx">
+      <DependentUpon>202105272214058_AddTravellerRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105302119453_AddAgencyTable.resx">
+      <DependentUpon>202105302119453_AddAgencyTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105311603178_RemoveConfrimPasswordAgency.resx">
+      <DependentUpon>202105311603178_RemoveConfrimPasswordAgency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105311612540_AddAdminTable1.resx">
+      <DependentUpon>202105311612540_AddAdminTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105311636444_AddadminRecords.resx">
+      <DependentUpon>202105311636444_AddadminRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105311735428_AddUserInfoTable.resx">
+      <DependentUpon>202105311735428_AddUserInfoTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105311818472_AddUserInfo.resx">
+      <DependentUpon>202105311818472_AddUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105312014579_ConvertToInt.resx">
+      <DependentUpon>202105312014579_ConvertToInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105312021588_addColumn.resx">
+      <DependentUpon>202105312021588_addColumn.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59232</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59232/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
