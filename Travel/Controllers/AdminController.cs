@@ -8,17 +8,23 @@ using System.Web.Mvc;
 using Travel.Models;
 
 
+
+using System.Web.Security;
+
+
 namespace Travel.Controllers
 {
     public class AdminController : Controller
     {
+
         // GET: Admin
+
 
         MyDbContext MyDb = new MyDbContext();
 
         public ActionResult AdminIndex()
         {
- 
+
             return View();
         }
 
@@ -49,7 +55,7 @@ namespace Travel.Controllers
 
 
         }
-        
+
         public ActionResult EditTraveller(int? id)
         {
             if (id == null)
@@ -64,7 +70,7 @@ namespace Travel.Controllers
             return View(traveller);
         }
 
-      
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditTraveller([Bind(Include = "ID,FirtsName,LastName,UserName,PhoneNumber,Email,Password,ConfrimPassword")] Traveller traveller)
@@ -203,13 +209,19 @@ namespace Travel.Controllers
             base.Dispose(disposing);
         }
 
+        public ActionResult ShowProfile()
+        {
+
+            return View();
+
+        }
 
 
     }
- }
+}
 
 
 
 
 
-    
+

@@ -1,41 +1,47 @@
-﻿
-@model Travel.Models.UserInfo
+﻿@model Travel.Models.UserInfo
 
-<div class="modal-content">
-    <form id="account" method="post" asp-page-handler="Login">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Log in</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <section>
-                        <div asp-validation-summary="All" class="text-danger"></div>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href=@Url.Content("/Content/css/bootstrap.css")>
+    <title>Login</title>
+</head>
+<body>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Login
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
                         <div class="form-group">
-                            <label asp-for="UserName"></label>
-                            <input asp-for="UserName" class="form-control" />
-                         
+                            @Html.LabelFor(m => m.UserName)
+                            @Html.TextBoxFor(m => m.UserName, "", new { @class = "form-control", @placeholder = "User Name" })
+
                         </div>
                         <div class="form-group">
-                            <label asp-for="Password"></label>
-                            <input asp-for="Password" class="form-control" />
-                           
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
                         </div>
-
-                        
-                        
-                    </section>
+                        <div class="form-group">
+                            <input type="submit" name="submit" class="btn btn-success" value="Login" />
+                        </div>
+                    }
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Log in</button>
+
+        <div>
         </div>
-    </form>
-</div>
-<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </div>
+</body>
+</html>

@@ -75,13 +75,7 @@
                 @Html.DisplayFor(model => model.Password)
             </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.ConfrimPassword)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ConfrimPassword)
-            </dd>
+            s
 
         </dl>
 
@@ -90,7 +84,7 @@
             @Html.AntiForgeryToken()
 
             <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-success"  /> |
+                <input type="submit" value="Delete" class="btn btn-success" /> |
                 @Html.ActionLink("Back to List", "ViewAgency")
             </div>
         }

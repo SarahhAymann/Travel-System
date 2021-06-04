@@ -27,7 +27,7 @@
         </a>
     </div> <!-- /.logo -->
 
-    <button class="btn" onclick="location.href='@Url.Action("CreateAgency", "Admin" )'"><i class="fa fa-plus"></i> Add Agency</button>
+    <button class="btn" onclick="location.href='@Url.Action("CreateAgency", "Admin" )'"><i class="fa fa-plus"></i> Add Agency S</button>
 
     <table class="table table-dark table-hover">
         <tr>
@@ -49,9 +49,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Password)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ConfrimPassword)
-            </th>
+
             <th></th>
         </tr>
 
@@ -76,12 +74,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Password)
                 </td>
+                >
                 <td>
-                    @Html.DisplayFor(modelItem => item.ConfrimPassword)
-                </td>
-                <td>
-                   
-                  
+
+
                     @Html.ActionLink("Delete", "DeleteAgency", new { id = item.ID })
                 </td>
             </tr>

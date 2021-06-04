@@ -206,6 +206,14 @@
     <Compile Include="Migrations\202105312021588_addColumn.designer.cs">
       <DependentUpon>202105312021588_addColumn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106042158589_addUserInfoesData.cs" />
+    <Compile Include="Migrations\202106042158589_addUserInfoesData.designer.cs">
+      <DependentUpon>202106042158589_addUserInfoesData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106042201185_editUserInfoesTable.cs" />
+    <Compile Include="Migrations\202106042201185_editUserInfoesTable.designer.cs">
+      <DependentUpon>202106042201185_editUserInfoesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Agencies.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -301,6 +309,8 @@
     <Content Include="Views\Admin\DeleteAgency.cshtml" />
     <Content Include="Views\Admin\UsersPage.cshtml" />
     <Content Include="Views\home\Login.cshtml" />
+    <Content Include="Views\home\Register.cshtml" />
+    <Content Include="Views\Admin\ShowProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -341,6 +351,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105312021588_addColumn.resx">
       <DependentUpon>202105312021588_addColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106042158589_addUserInfoesData.resx">
+      <DependentUpon>202106042158589_addUserInfoesData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106042201185_editUserInfoesTable.resx">
+      <DependentUpon>202106042201185_editUserInfoesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
