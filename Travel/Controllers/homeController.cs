@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,7 +12,6 @@ namespace Travel.Controllers
     {
         MyDbContext MyDb = new MyDbContext();
         // GET: home
-        string Admin = "Admin";
         public ActionResult Index()
         {
             return View();
@@ -30,6 +30,14 @@ namespace Travel.Controllers
         {
             if (ModelState.IsValid)
             {
+                string fileName = Path.GetFileNameWithoutExtension(_user.ImageFile.FileName);
+                string extension = Path.GetExtension(_user.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                _user.Image = "~/Image/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+                _user.ImageFile.SaveAs(fileName);
+
+
                 var check = MyDb.users.FirstOrDefault(s => s.UserName == _user.UserName || s.Email == _user.Email);
                 if (check == null)
                 {

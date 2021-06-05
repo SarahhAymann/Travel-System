@@ -145,7 +145,6 @@
     <Content Include="Content\js\vendor\modernizr-2.6.1-respond-1.1.0.min.js" />
     <Content Include="Content\services.html" />
     <Content Include="Global.asax" />
-    <Content Include="Photos\SarahPic.png" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
@@ -213,6 +212,14 @@
     <Compile Include="Migrations\202106042201185_editUserInfoesTable.cs" />
     <Compile Include="Migrations\202106042201185_editUserInfoesTable.designer.cs">
       <DependentUpon>202106042201185_editUserInfoesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106042343044_UserImage.cs" />
+    <Compile Include="Migrations\202106042343044_UserImage.designer.cs">
+      <DependentUpon>202106042343044_UserImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106042358217_Returnimage.cs" />
+    <Compile Include="Migrations\202106042358217_Returnimage.designer.cs">
+      <DependentUpon>202106042358217_Returnimage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Agencies.cs" />
@@ -320,6 +327,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202105272103360_IntiallMigration.resx">
@@ -357,6 +365,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106042201185_editUserInfoesTable.resx">
       <DependentUpon>202106042201185_editUserInfoesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106042343044_UserImage.resx">
+      <DependentUpon>202106042343044_UserImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106042358217_Returnimage.resx">
+      <DependentUpon>202106042358217_Returnimage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
