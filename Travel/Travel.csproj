@@ -221,9 +221,15 @@
     <Compile Include="Migrations\202106042358217_Returnimage.designer.cs">
       <DependentUpon>202106042358217_Returnimage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106052240401_TripPostTabel.cs" />
+    <Compile Include="Migrations\202106052240401_TripPostTabel.designer.cs">
+      <DependentUpon>202106052240401_TripPostTabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Agencies.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\TripPosts.cs" />
+    <Compile Include="Models\TripPostsController.cs" />
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Models\MyDbContext .cs" />
     <Compile Include="Models\Traveller.cs" />
@@ -318,6 +324,11 @@
     <Content Include="Views\home\Login.cshtml" />
     <Content Include="Views\home\Register.cshtml" />
     <Content Include="Views\Admin\ShowProfile.cshtml" />
+    <Content Include="Views\TripPosts\Create.cshtml" />
+    <Content Include="Views\TripPosts\Delete.cshtml" />
+    <Content Include="Views\TripPosts\Details.cshtml" />
+    <Content Include="Views\TripPosts\Edit.cshtml" />
+    <Content Include="Views\TripPosts\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -371,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106042358217_Returnimage.resx">
       <DependentUpon>202106042358217_Returnimage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106052240401_TripPostTabel.resx">
+      <DependentUpon>202106052240401_TripPostTabel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

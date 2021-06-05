@@ -14,7 +14,7 @@
         <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
             <div class="card-header">Profile</div>
             <div class="card-body">
-                <img class="card-img-top" src='@Session["UserImage"]' alt="Card image" style="width:100%">
+                <img class="card-img-top" src="@Url.Content(Session["UserImage"].ToString())" alt="Card image" style="width:100%">
                 <h4 class="card-title">Profile Details</h4>
                 <p class="card-text">First Name: @Session["FirstName"]</p>
                 <p class="card-text">Last Name: @Session["LastName"]</p>

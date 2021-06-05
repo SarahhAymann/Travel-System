@@ -7,6 +7,9 @@ public class MyDbContext : DbContext
     public DbSet<Agencies> agencies { get; set; }
     public DbSet<Admin> admin { get; set; }
     public DbSet<UserInfo> users { get; set; }
+    public DbSet<TripPosts> tripPosts { get; set; }
+
+
 
 
     public MyDbContext()
