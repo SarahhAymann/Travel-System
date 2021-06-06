@@ -8,6 +8,7 @@ public class MyDbContext : DbContext
     public DbSet<Admin> admin { get; set; }
     public DbSet<UserInfo> users { get; set; }
     public DbSet<TripPosts> tripPosts { get; set; }
+    public DbSet<PostsRequests>  postsRequests { get; set; }
 
 
 

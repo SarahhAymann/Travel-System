@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+
+    <meta charset="utf-8">
+    <title>Travel Responsive Web Template</title>
+    <meta name="description" content="">
+    <!--
+    Travel Template
+    http://www.templatemo.com/tm-409-travel
+    -->
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="templatemo">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href=@Url.Content("/Content/css/bootstrap.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/css/bootstrap.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/css/font-awesome.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/css/animate.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/css/templatemo_misc.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/css/templatemo_style.css")>
+
+    <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+    <title>Sidebar template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <link href="~/Content/css/Sidebar.css" rel="stylesheet" />
+    <link href="~/Content/css/logoutButton.css" rel="stylesheet" />
+
+
+</head>
+<body>
+
+    <!--[if lt IE 7]>
+           <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+       <![endif]-->
+
+    <div class="site-header">
+        <div class="container">
+            <div class="main-header">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-10">
+                        <div class="logo">
+                            <a href="#">
+                                <img src=@Url.Content("/Content/images/logo.png") alt="travel html5 template" title="travel html5 template">
+                            </a>
+                        </div> <!-- /.logo -->
+                    </div> <!-- /.col-md-4 -->
+                    <div class="col-md-8 col-sm-6 col-xs-2">
+                        <div class="topnav">
+                            <button class="btn success">Logout</button>
+                        </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.row -->
+                </div> <!-- /.main-header -->
+                <div class="row">
+                    <div class="col-md-12 visible-sm visible-xs">
+                        <div class="menu-responsive">
+                            <ul>
+                                <li class="active"><a href="index.html">Home</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="events.html">Events</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div> <!-- /.menu-responsive -->
+                    </div> <!-- /.col-md-12 -->
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /.site-header -->
+
+
+        <div> @RenderBody(); </div>
+
+
+
+        <div class="page-wrapper chiller-theme toggled">
+            <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+                <i class="fas fa-bars"></i>
+            </a>
+            <nav id="sidebar" class="sidebar-wrapper">
+                <div class="sidebar-content">
+                    <div class="sidebar-brand">
+                        <a href="#">Profile Menu</a>
+                        <div id="close-sidebar">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="sidebar-header">
+                        <div class="user-pic">
+                            <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+                                 alt="User picture">
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">
+                                Jhon
+                                <strong>Smith</strong>
+                            </span>
+                            <span class="user-role">Administrator</span>
+                            <span class="user-status">
+                                <i class="fa fa-circle"></i>
+                                <span>Online</span>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- sidebar-header  -->
+
+                    <div class="sidebar-menu">
+                        <ul>
+
+                            <li><a href="Profile.html">Profile</a></li>
+                            <li><a href="MyPosts.html">My Posts</a></li>
+                            <li><a href="CreateNewPost.html">Create New Post</a></li>
+                            <li><a href="RecivedQuestions.html">Recieved Questions</a></li>
+                        </ul>
+                    </div>
+                    <!-- sidebar-menu  -->
+                </div>
+                <!-- sidebar-content  -->
+
+            </nav>
+            <!-- sidebar-wrapper  -->
+            <main class="page-content">
+                <div class="container-fluid">
+
+
+
+                    <div class="site-footer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="footer-logo">
+                                        <a href="index.html">
+                                            <img src=@Url.Content("/Content/images/logo.png") alt="">
+                                        </a>
+                                    </div>
+                                </div> <!-- /.col-md-4 -->
+                                <div class="col-md-4 col-sm-4">
+                                    <div class="copyright">
+                                        <span>
+
+                                            Copyright &copy; 2014 <a href="#">Company Name</a>
+
+
+                                            <!--
+                                            | Design: <a rel="nofollow" href="http://www.templatemo.com" target="_parent">templatemo</a>
+                                            -->
+
+                                        </span>
+                                    </div>
+                                </div> <!-- /.col-md-4 -->
+                                <div class="col-md-4 col-sm-4">
+                                    <ul class="social-icons">
+                                        <li><a href="#" class="fa fa-facebook"></a></li>
+                                        <li><a href="#" class="fa fa-twitter"></a></li>
+                                        <li><a href="#" class="fa fa-linkedin"></a></li>
+                                        <li><a href="#" class="fa fa-flickr"></a></li>
+                                        <li><a href="#" class="fa fa-rss"></a></li>
+                                    </ul>
+                                </div> <!-- /.col-md-4 -->
+                            </div> <!-- /.row -->
+                        </div> <!-- /.container -->
+                    </div> <!-- /.site-footer -->
+
+                    <script src=@Url.Content("/Content/js/vendor/jquery-1.11.0.min.js")></script>
+                    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+                    <script src=@Url.Content("/Content/js/bootstrap.js")></script>
+                    <script src=@Url.Content("/Content/js/plugins.js")></script>
+                    <script src=@Url.Content("/Content/js/main.js")></script>
+                    <script type="text/javascript">
+                    $(".sidebar-dropdown > a").click(function () {
+                        $(".sidebar-submenu").slideUp(200);
+                        if (
+                            $(this)
+                                .parent()
+                                .hasClass("active")
+                        ) {
+                            $(".sidebar-dropdown").removeClass("active");
+                            $(this)
+                                .parent()
+                                .removeClass("active");
+                        } else {
+                            $(".sidebar-dropdown").removeClass("active");
+                            $(this)
+                                .next(".sidebar-submenu")
+                                .slideDown(200);
+                            $(this)
+                                .parent()
+                                .addClass("active");
+                        }
+                    });
+
+                    $("#close-sidebar").click(function () {
+                        $(".page-wrapper").removeClass("toggled");
+                    });
+                    $("#show-sidebar").click(function () {
+                        $(".page-wrapper").addClass("toggled");
+                    });
+                    </script>
+                    <!-- templatemo 409 travel -->
+
+
+</body>
+</html>

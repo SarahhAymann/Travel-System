@@ -99,15 +99,20 @@ namespace Travel.Controllers
                         return RedirectToAction("AdminIndex", "Admin");
                 
                      }
-                    
-               
 
+                    if (Session["UserRole"].ToString() == "agency")
+                    {
+                        return RedirectToAction("Index", "Agency");
+                    }
 
                     else
                     {
                         return RedirectToAction("Index");
 
                     }
+
+
+                
 
 
                 }

@@ -101,6 +101,8 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\logoutButton.css" />
+    <Content Include="Content\css\Sidebar.css" />
     <Content Include="Content\css\templatemo_misc.css" />
     <Content Include="Content\css\templatemo_style.css" />
     <Content Include="Content\events.html" />
@@ -160,6 +162,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AgencyController.cs" />
     <Compile Include="Controllers\homeController.cs" />
     <Compile Include="Controllers\TravellersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -225,11 +228,16 @@
     <Compile Include="Migrations\202106052240401_TripPostTabel.designer.cs">
       <DependentUpon>202106052240401_TripPostTabel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106052352093_RequestTableAdded.cs" />
+    <Compile Include="Migrations\202106052352093_RequestTableAdded.designer.cs">
+      <DependentUpon>202106052352093_RequestTableAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Agencies.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\PostsRequests.cs" />
     <Compile Include="Models\TripPosts.cs" />
-    <Compile Include="Models\TripPostsController.cs" />
+    <Compile Include="Controllers\TripPostsController.cs" />
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Models\MyDbContext .cs" />
     <Compile Include="Models\Traveller.cs" />
@@ -329,6 +337,10 @@
     <Content Include="Views\TripPosts\Details.cshtml" />
     <Content Include="Views\TripPosts\Edit.cshtml" />
     <Content Include="Views\TripPosts\Index.cshtml" />
+    <Content Include="Views\Shared\Agency.cshtml" />
+    <Content Include="Views\Agency\Index.cshtml" />
+    <Content Include="Views\Agency\Create.cshtml" />
+    <Content Include="Views\Admin\Requests.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -385,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106052240401_TripPostTabel.resx">
       <DependentUpon>202106052240401_TripPostTabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106052352093_RequestTableAdded.resx">
+      <DependentUpon>202106052352093_RequestTableAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

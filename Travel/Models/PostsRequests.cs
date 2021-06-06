@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Travel.Models
 {
-    public class TripPosts
+    public class PostsRequests
     {
         public int ID { get; set; }
 
@@ -15,6 +15,7 @@ namespace Travel.Models
         public string TripDetails { get; set; }
         public DateTime PostDate { get; set; }
         public DateTime TripDate { get; set; }
+        public string RequestStatus { get; set; } = "Pending";
 
         public string TripDestination { get; set; }
 
@@ -23,8 +24,10 @@ namespace Travel.Models
         [Display(Name = "Destination Pic")]
         public string TripImage { get; set; }
 
+
+
         [NotMapped]
 
-        public HttpPostedFileBase ImageFile { get; set; }
+        public HttpPostedFileBase requestImageFile { get; set; }
     }
 }

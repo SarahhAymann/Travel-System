@@ -216,6 +216,51 @@ namespace Travel.Controllers
 
         }
 
+        public ActionResult Requests()
+        {
+            var request = GetPostsRequests();
+
+            return View(request);
+        }
+
+
+        public IEnumerable<PostsRequests> GetPostsRequests()
+        {
+
+            var requets = MyDb.postsRequests.ToList();
+
+
+
+
+            return requets;
+
+
+        }
+        public ActionResult Approve(int? id)
+        {
+        
+            PostsRequests requests = MyDb.postsRequests.ToList().Find(u => u.ID == id);
+            requests.RequestStatus = "Approved";
+            MyDb.SaveChanges();
+
+           
+            return RedirectToAction("Requests");
+        }
+
+
+        public ActionResult Disapprove(int id)
+        {
+            
+            PostsRequests requests = MyDb.postsRequests.ToList().Find(u=> u.ID==id);
+            requests.RequestStatus = "Disapproved";
+            MyDb.SaveChanges();
+
+            if (requests == null)
+            {
+                return HttpNotFound();
+            }
+            return RedirectToAction("Requests");
+        }
 
     }
 }
