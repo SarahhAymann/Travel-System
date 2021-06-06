@@ -1,22 +1,21 @@
-﻿@model IEnumerable<Travel.Models.Traveller>
+﻿@model IEnumerable<Travel.Models.TripPosts>
 
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
 
-    
-       
+
+
 
     <link rel="stylesheet" href=@Url.Content("/Content/css/bootstrap.css")>
 
     <title>ViewTraveller</title>
-    <title>About - Travel</title>
+
     <meta name="description" content="">
     <!--
     Travel Template
@@ -42,83 +41,75 @@
         </a>
     </div> <!-- /.logo -->
 
- 
-
-  
 
 
 
 
-        <button class="btn" onclick="location.href='@Url.Action("CreateTraveller", "Admin" )'"><i class="fa fa-plus"></i> Add Traveller</button>
 
 
 
-        <table class="table table-dark table-hover">
+    <button class="btn" onclick="location.href='@Url.Action("CreateTripPost", "Admin" )'"><i class="fa fa-plus"></i> Addd Trip Post</button>
+    <table class="table table-dark table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TripTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripDetails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripDestination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgencyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripImage)
+            </th>
+            <th></th>
+        </tr>
 
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.FirtsName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LastName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.UserName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PhoneNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Email)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Password)
-                </th>
-               
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FirtsName)
+                    @Html.DisplayFor(modelItem => item.TripTitle)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
+                    @Html.DisplayFor(modelItem => item.TripDetails)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
+                    @Html.DisplayFor(modelItem => item.PostDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    @Html.DisplayFor(modelItem => item.TripDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Email)
+                    @Html.DisplayFor(modelItem => item.TripDestination)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Password)
+                    @Html.DisplayFor(modelItem => item.AgencyName)
                 </td>
                 <td>
-                 <img src="@Url.Content(item.Image)" width="150" height="150" class="img-fluid img-thumbnail">
+                    <img src="@Url.Content(item.TripImage)" width="150" height="150" class="img-fluid img-thumbnail">
                 </td>
 
+
                 <td>
-
-
-                    @Html.ActionLink("Delete", "DeleteTraveller", new { id = item.ID })
+                    @Html.ActionLink("Edit", "EditTripPost", new { id = item.ID }) |
+                
+                    @Html.ActionLink("Delete", "DeleteTripPost", new { id = item.ID })
                 </td>
             </tr>
-            }
+        }
 
-        </table>
-    
-
-  
-
-    
-
-
+    </table>
     <div class="site-footer">
         <div class="container">
             <div class="row">

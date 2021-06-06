@@ -17,6 +17,7 @@ namespace Travel.Models
         public DateTime TripDate { get; set; }
 
         public string TripDestination { get; set; }
+        public string AgencyName { get; set; }
 
         [FileExtensions(Extensions = "jpg,jpeg,png")]
         [DataType(DataType.ImageUrl)]
@@ -25,6 +26,6 @@ namespace Travel.Models
 
         [NotMapped]
 
-        public HttpPostedFileBase ImageFile { get; set; }
+        public HttpPostedFileBase postImageFile { get; set; }
     }
 }

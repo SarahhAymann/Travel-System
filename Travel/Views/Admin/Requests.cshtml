@@ -62,6 +62,9 @@
                 @Html.DisplayNameFor(model => model.TripDestination)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.AgencyName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.TripImage)
             </th>
             <th></th>
@@ -69,34 +72,37 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TripTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TripDetails)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PostDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TripDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RequestStatus)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TripDestination)
-                </td>
-                <td>
-                    <img src="@Url.Content(item.TripImage)" width="150" height="150" class="img-fluid img-thumbnail">
-                </td>
-                <td>
-                    @Html.ActionLink("Approve", "Approve", new { id = item.ID }) |
-                    @Html.ActionLink("Disapprove", "Disapprove", new { id = item.ID }) |
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripDestination)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.AgencyName)
+            </td>
+            <td>
+                <img src="@Url.Content(item.TripImage)" width="150" height="150" class="img-fluid img-thumbnail">
+            </td>
+            <td>
+                @Html.ActionLink("Approve", "Approve", new { id = item.ID }) |
+                @Html.ActionLink("Disapprove", "Disapprove", new { id = item.ID }) |
 
-                </td>
-            </tr>
+            </td>
+        </tr>
         }
 
     </table>

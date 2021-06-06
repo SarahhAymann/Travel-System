@@ -10,7 +10,7 @@ using Travel.Models;
 
 
 using System.Web.Security;
-
+using System.IO;
 
 namespace Travel.Controllers
 {
@@ -28,12 +28,6 @@ namespace Travel.Controllers
             return View();
         }
 
-
-        public ActionResult UsersPage()
-        {
-
-            return View();
-        }
 
         public ActionResult ViewTraveller()
         {
@@ -56,33 +50,10 @@ namespace Travel.Controllers
 
         }
 
-        public ActionResult EditTraveller(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Traveller traveller = MyDb.traveller.Find(id);
-            if (traveller == null)
-            {
-                return HttpNotFound();
-            }
-            return View(traveller);
-        }
+  
 
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditTraveller([Bind(Include = "ID,FirtsName,LastName,UserName,PhoneNumber,Email,Password,ConfrimPassword")] Traveller traveller)
-        {
-            if (ModelState.IsValid)
-            {
-                MyDb.Entry(traveller).State = EntityState.Modified;
-                MyDb.SaveChanges();
-                return RedirectToAction("ViewTraveller");
-            }
-            return View(traveller);
-        }
+     
 
         public ActionResult CreateTraveller()
         {
@@ -92,10 +63,17 @@ namespace Travel.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateTraveller([Bind(Include = "ID,FirtsName,LastName,UserName,PhoneNumber,Email,Password,ConfrimPassword")] Traveller traveller)
+        public ActionResult CreateTraveller( Traveller traveller)
         {
             if (ModelState.IsValid)
             {
+                string fileName = Path.GetFileNameWithoutExtension(traveller.ImageFile.FileName);
+                string extension = Path.GetExtension(traveller.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                traveller.Image = "~/Image/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+                traveller.ImageFile.SaveAs(fileName);
+
                 MyDb.traveller.Add(traveller);
                 MyDb.SaveChanges();
                 return RedirectToAction("ViewTraveller");
@@ -104,6 +82,8 @@ namespace Travel.Controllers
             return View(traveller);
         }
 
+
+   
 
 
         public ActionResult DeleteTraveller(int? id)
@@ -209,6 +189,123 @@ namespace Travel.Controllers
             base.Dispose(disposing);
         }
 
+
+        public ActionResult ViewTripPosts()
+        {
+            var TripPost = GetTripPosts();
+
+            return View(TripPost);
+        }
+
+
+        public IEnumerable<TripPosts> GetTripPosts()
+        {
+
+            var TripPost = MyDb.tripPosts.ToList();
+
+
+
+
+            return TripPost;
+
+
+        }
+
+        public ActionResult CreateTripPost()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateTripPost(TripPosts post)
+        {
+            if (ModelState.IsValid)
+
+            {
+                post.PostDate = DateTime.Now;
+                string fileName = Path.GetFileNameWithoutExtension(post.postImageFile.FileName);
+                string extension = Path.GetExtension(post.postImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                post.TripImage = "~/Image/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+                post.postImageFile.SaveAs(fileName);
+
+                MyDb.tripPosts.Add(post);
+                MyDb.SaveChanges();
+                return RedirectToAction("ViewTripPosts");
+            }
+
+            return View(post);
+        }
+
+
+
+
+        public ActionResult EditTripPost(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TripPosts post = MyDb.tripPosts.Find(id);
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+            return View(post);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditTripPost(TripPosts post)
+        {
+            if (ModelState.IsValid)
+            {
+                post.PostDate = DateTime.Now;
+                post.TripDate = DateTime.Now;
+                string fileName = Path.GetFileNameWithoutExtension(post.postImageFile.FileName);
+                string extension = Path.GetExtension(post.postImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                post.TripImage = "~/Image/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+                post.postImageFile.SaveAs(fileName);
+
+                MyDb.Entry(post).State = EntityState.Modified;
+                MyDb.SaveChanges();
+                return RedirectToAction("ViewTraveller");
+            }
+            return View(post);
+        }
+
+
+        public ActionResult DeleteTripPost(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TripPosts post = MyDb.tripPosts.Find(id);
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+            return View(post);
+        }
+
+        // POST: Travellers/Delete/5
+        [HttpPost, ActionName("DeleteTripPost")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteTripPostConfirmed(int id)
+        {
+            TripPosts post = MyDb.tripPosts.Find(id);
+            MyDb.tripPosts.Remove(post);
+            MyDb.SaveChanges();
+            return RedirectToAction("ViewTripPosts");
+        }
+
         public ActionResult ShowProfile()
         {
 
@@ -241,9 +338,27 @@ namespace Travel.Controllers
         
             PostsRequests requests = MyDb.postsRequests.ToList().Find(u => u.ID == id);
             requests.RequestStatus = "Approved";
+            TripPosts posts = new TripPosts();
+            MyDb.SaveChanges();
+            posts.TripTitle = requests.TripTitle;
+            posts.TripDetails = requests.TripDetails;
+            posts.TripDate = requests.TripDate;
+            posts.PostDate = requests.PostDate;
+            posts.TripDestination = requests.TripDestination;
+            posts.TripImage = requests.TripImage;
+            MyDb.tripPosts.Add(posts);
+
+
             MyDb.SaveChanges();
 
-           
+
+
+
+
+
+
+
+
             return RedirectToAction("Requests");
         }
 
@@ -262,8 +377,11 @@ namespace Travel.Controllers
             return RedirectToAction("Requests");
         }
 
+       
+        }
+
     }
-}
+
 
 
 

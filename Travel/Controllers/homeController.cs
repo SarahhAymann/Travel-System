@@ -29,7 +29,9 @@ namespace Travel.Controllers
         public ActionResult Register(UserInfo _user)
         {
             if (ModelState.IsValid)
+
             {
+                
                 string fileName = Path.GetFileNameWithoutExtension(_user.ImageFile.FileName);
                 string extension = Path.GetExtension(_user.ImageFile.FileName);
                 fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
@@ -41,13 +43,20 @@ namespace Travel.Controllers
                 var check = MyDb.users.FirstOrDefault(s => s.UserName == _user.UserName || s.Email == _user.Email);
                 if (check == null)
                 {
+                    
                     _user.Password = _user.Password;
-
+                   
 
                     MyDb.Configuration.ValidateOnSaveEnabled = false;
+                   
                     MyDb.users.Add(_user);
+                 
                     MyDb.SaveChanges();
-                    return RedirectToAction("Index");
+
+                  
+
+
+                    return RedirectToAction("Login");
                 }
                 else
                 {
@@ -55,12 +64,16 @@ namespace Travel.Controllers
                     return View();
                 }
 
+                
 
             }
             return View();
 
 
         }
+
+
+
 
         public ActionResult Login()
         {

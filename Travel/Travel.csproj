@@ -232,6 +232,18 @@
     <Compile Include="Migrations\202106052352093_RequestTableAdded.designer.cs">
       <DependentUpon>202106052352093_RequestTableAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106061249457_AgencyNameTabel.cs" />
+    <Compile Include="Migrations\202106061249457_AgencyNameTabel.designer.cs">
+      <DependentUpon>202106061249457_AgencyNameTabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106061251254_AgencyNameRequests.cs" />
+    <Compile Include="Migrations\202106061251254_AgencyNameRequests.designer.cs">
+      <DependentUpon>202106061251254_AgencyNameRequests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106061811395_PhotoInTraveller.cs" />
+    <Compile Include="Migrations\202106061811395_PhotoInTraveller.designer.cs">
+      <DependentUpon>202106061811395_PhotoInTraveller.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Agencies.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -322,7 +334,6 @@
     <Content Include="Views\Shared\Admin.cshtml" />
     <Content Include="Views\Admin\AdminIndex.cshtml" />
     <Content Include="Views\Admin\ViewTraveller.cshtml" />
-    <Content Include="Views\Admin\EditTraveller.cshtml" />
     <Content Include="Views\Admin\CreateTraveller.cshtml" />
     <Content Include="Views\Admin\DeleteTraveller.cshtml" />
     <Content Include="Views\Admin\ViewAgency.cshtml" />
@@ -339,8 +350,12 @@
     <Content Include="Views\TripPosts\Index.cshtml" />
     <Content Include="Views\Shared\Agency.cshtml" />
     <Content Include="Views\Agency\Index.cshtml" />
-    <Content Include="Views\Agency\Create.cshtml" />
+    <Content Include="Views\Agency\CreateTripPostRequest.cshtml" />
     <Content Include="Views\Admin\Requests.cshtml" />
+    <Content Include="Views\Admin\ViewTripPosts.cshtml" />
+    <Content Include="Views\Admin\CreateTripPost.cshtml" />
+    <Content Include="Views\Admin\EditTripPost.cshtml" />
+    <Content Include="Views\Admin\DeleteTripPost.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -400,6 +415,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106052352093_RequestTableAdded.resx">
       <DependentUpon>202106052352093_RequestTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106061249457_AgencyNameTabel.resx">
+      <DependentUpon>202106061249457_AgencyNameTabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106061251254_AgencyNameRequests.resx">
+      <DependentUpon>202106061251254_AgencyNameRequests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106061811395_PhotoInTraveller.resx">
+      <DependentUpon>202106061811395_PhotoInTraveller.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -27,11 +27,12 @@ namespace Travel.Controllers
        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( PostsRequests requests)
+        public ActionResult CreateTripPostRequest( PostsRequests requests)
         {
             if (ModelState.IsValid)
 
             {
+                requests.PostDate = DateTime.Now;
                 string fileName = Path.GetFileNameWithoutExtension(requests.requestImageFile.FileName);
                 string extension = Path.GetExtension(requests.requestImageFile.FileName);
                 fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;

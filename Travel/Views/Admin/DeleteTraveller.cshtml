@@ -73,11 +73,11 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.ConfrimPassword)
+                @Html.DisplayNameFor(model => model.Image)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.ConfrimPassword)
+                <img src="@Url.Content(Model.Image)" width="150" height="150" />
             </dd>
 
         </dl>

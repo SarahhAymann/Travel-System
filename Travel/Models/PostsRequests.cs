@@ -18,6 +18,7 @@ namespace Travel.Models
         public string RequestStatus { get; set; } = "Pending";
 
         public string TripDestination { get; set; }
+        public string AgencyName { get; set; }
 
         [FileExtensions(Extensions = "jpg,jpeg,png")]
         [DataType(DataType.ImageUrl)]
