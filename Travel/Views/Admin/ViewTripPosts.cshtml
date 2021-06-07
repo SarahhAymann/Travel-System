@@ -103,13 +103,18 @@
 
                 <td>
                     @Html.ActionLink("Edit", "EditTripPost", new { id = item.ID }) |
-                
+
                     @Html.ActionLink("Delete", "DeleteTripPost", new { id = item.ID })
                 </td>
             </tr>
         }
 
     </table>
+
+    <div>
+        @Html.ActionLink("Back To Main Page", "AdminIndex")
+    </div>
+
     <div class="site-footer">
         <div class="container">
             <div class="row">

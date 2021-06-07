@@ -14,7 +14,24 @@ namespace Travel.Controllers
         // GET: home
         public ActionResult Index()
         {
-            return View();
+            var TripPost = GetTripPosts();
+
+            return View(TripPost);
+        }
+
+
+
+        public IEnumerable<TripPosts> GetTripPosts()
+        {
+
+            var TripPost = MyDb.tripPosts.ToList();
+
+
+
+
+            return TripPost;
+
+
         }
         //GET: Register
 
@@ -120,7 +137,7 @@ namespace Travel.Controllers
 
                     else
                     {
-                        return RedirectToAction("Index");
+                        return RedirectToAction("ShowAfterLogin");
 
                     }
 
@@ -139,11 +156,36 @@ namespace Travel.Controllers
         }
 
 
+
+
         //Logout
         public ActionResult Logout()
         {
             Session.Clear();//remove session
             return RedirectToAction("Login");
+        }
+
+
+        public ActionResult ShowAfterLogin()
+        {
+            var TripPost = GetTripPosts();
+
+            return View(TripPost);
+        }
+
+        public ActionResult Like(int id)
+        {
+            TripPosts update = MyDb.tripPosts.ToList().Find(u => u.ID == id);
+            update.Post_Like += 1;
+            MyDb.SaveChanges();
+            return RedirectToAction("ShowAfterLogin");
+        }
+        public ActionResult DisLike(int id)
+        {
+            TripPosts update = MyDb.tripPosts.ToList().Find(u => u.ID == id);
+            update.Post_DisLike += 1;
+            MyDb.SaveChanges();
+            return RedirectToAction("ShowAfterLogin");
         }
 
     }

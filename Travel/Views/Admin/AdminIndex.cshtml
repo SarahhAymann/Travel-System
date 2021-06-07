@@ -50,15 +50,8 @@
                         <div class="main-menu">
                             <ul class="visible-lg visible-md">
                                 <li><a href='@Url.Action("ShowProfile", "Admin")'>Profile</a></li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">User's Page</a>
-                                    <div class="dropdown-menu show" data-bs-popper="none">
-                                        <a class="dropdown-item" href='@Url.Action("ViewAgency", "Admin")'>Agencies </a>
+                                <li><a <a href='@Url.Action("ViewUsers", "Admin")'>User's Page</a></li>
 
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href='@Url.Action("ViewTraveller", "Admin")'>Travellers </a>
-                                    </div>
-                                </li>
                                 <li><a <a href='@Url.Action("ViewTripPosts", "Admin")'>Post's page</a></li>
                                 <li><a href='@Url.Action("Requests", "Admin")'>Post's Requests</a></li>
                                 <li><a href='@Url.Action("Logout", "home")'>Logout</a></li>

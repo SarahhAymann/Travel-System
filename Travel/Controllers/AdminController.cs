@@ -29,33 +29,49 @@ namespace Travel.Controllers
         }
 
 
-        public ActionResult ViewTraveller()
+        public ActionResult ViewUsers()
         {
-            var traveller = GetTravellers();
 
-            return View(traveller);
+            var Users = GetUsers();
+
+            return View(Users);
+
         }
 
 
-        public IEnumerable<Traveller> GetTravellers()
+
+
+
+        public IEnumerable<UserInfo> GetUsers()
         {
+            var user = MyDb.users.ToList();
 
-            var traveller = MyDb.traveller.ToList();
+            foreach (var item in user)
+            {
+                if(item.UserRole == "admin")
+                {
+                    
+                    user.Remove(item);
+
+                    return user;
+
+                }
+            }
 
 
-
-
-            return traveller;
+            return Enumerable.Empty<UserInfo>();
+            
+      
 
 
         }
 
-  
 
 
-     
 
-        public ActionResult CreateTraveller()
+
+
+        public ActionResult CreateUser()
         {
             return View();
         }
@@ -63,121 +79,55 @@ namespace Travel.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateTraveller( Traveller traveller)
+        public ActionResult CreateUser(UserInfo user)
         {
             if (ModelState.IsValid)
             {
-                string fileName = Path.GetFileNameWithoutExtension(traveller.ImageFile.FileName);
-                string extension = Path.GetExtension(traveller.ImageFile.FileName);
+                string fileName = Path.GetFileNameWithoutExtension(user.ImageFile.FileName);
+                string extension = Path.GetExtension(user.ImageFile.FileName);
                 fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                traveller.Image = "~/Image/" + fileName;
+                user.Image = "~/Image/" + fileName;
                 fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
-                traveller.ImageFile.SaveAs(fileName);
+                user.ImageFile.SaveAs(fileName);
 
-                MyDb.traveller.Add(traveller);
+                MyDb.users.Add(user);
                 MyDb.SaveChanges();
-                return RedirectToAction("ViewTraveller");
+                return RedirectToAction("ViewUsers");
             }
 
-            return View(traveller);
+            return View(user);
         }
 
 
-   
 
 
-        public ActionResult DeleteTraveller(int? id)
+
+        public ActionResult DeleteUsers(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Traveller traveller = MyDb.traveller.Find(id);
-            if (traveller == null)
+            UserInfo user = MyDb.users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(traveller);
+            return View(user);
         }
 
         // POST: Travellers/Delete/5
-        [HttpPost, ActionName("DeleteTraveller")]
+        [HttpPost, ActionName("DeleteUsers")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteTravellerConfirmed(int id)
+        public ActionResult DeleteUsersConfirm(int id)
         {
-            Traveller traveller = MyDb.traveller.Find(id);
-            MyDb.traveller.Remove(traveller);
+            UserInfo user = MyDb.users.Find(id);
+            MyDb.users.Remove(user);
             MyDb.SaveChanges();
-            return RedirectToAction("ViewTraveller");
-        }
-
-        public ActionResult ViewAgency()
-        {
-            var agency = GetAgencies();
-
-            return View(agency);
+            return RedirectToAction("ViewUsers");
         }
 
 
-        public IEnumerable<Agencies> GetAgencies()
-        {
-
-            var agency = MyDb.agencies.ToList();
-
-
-
-
-            return agency;
-
-        }
-
-
-        public ActionResult CreateAgency()
-        {
-            return View();
-        }
-
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CreateAgency([Bind(Include = "ID,FirtsName,LastName,UserName,PhoneNumber,Email,Password,ConfrimPassword")] Agencies agency)
-        {
-            if (ModelState.IsValid)
-            {
-                MyDb.agencies.Add(agency);
-                MyDb.SaveChanges();
-                return RedirectToAction("ViewAgency");
-            }
-
-            return View(agency);
-        }
-
-
-
-        public ActionResult DeleteAgency(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Agencies agency = MyDb.agencies.Find(id);
-            if (agency == null)
-            {
-                return HttpNotFound();
-            }
-            return View(agency);
-        }
-
-        // POST: Travellers/Delete/5
-        [HttpPost, ActionName("DeleteAgency")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteAgencyConfirmed(int id)
-        {
-            Agencies agency = MyDb.agencies.Find(id);
-            MyDb.agencies.Remove(agency);
-            MyDb.SaveChanges();
-            return RedirectToAction("ViewAgency");
-        }
 
 
         protected override void Dispose(bool disposing)

@@ -111,27 +111,34 @@
                     </div> <!-- /.col-md-4 -->
                     <div class="col-md-8 col-sm-6 col-xs-2">
                         <div class="topnav">
-                            <button class="btn success" onclick="location.href='@Url.Action("Login", "home" )'">Login</button>
-                            <button class="btn success" onclick="location.href='@Url.Action("Register", "home" )'">Register</button>
+                            <a class="navbar-brand" href="#">
+                                <img src="@Url.Content(Session["UserImage"].ToString())" alt="logo" style="width:40px;">
+                                <span class="navbar-text">
+                                    @Session["UserName"]
+                                </span>
+                            </a>
+                            <button class="btn success" onclick="location.href='@Url.Action("Logout", "home" )'">Logout</button>
+
                             <input class="form-control" id="myInput" type="text" placeholder="Search..">
 
+                            
                         </div>
 
-                    </div>
 
 
 
-                </div> <!-- /.col-md-8 -->
+                    </div> <!-- /.col-md-8 -->
+                </div> <!-- /.row -->
+            </div> <!-- /.main-header -->
+            <div class="row">
+                <div class="col-md-12 visible-sm visible-xs">
+
+                    <h1>Hello @Session["FirstName"]</h1>
+                 
+                </div> <!-- /.col-md-12 -->
             </div> <!-- /.row -->
-        </div> <!-- /.main-header -->
-        <div class="row">
-            <div class="col-md-12 visible-sm visible-xs">
-
-            </div> <!-- /.col-md-12 -->
-        </div> <!-- /.row -->
-    </div> <!-- /.container -->
-    
-
+        </div> <!-- /.container -->
+    </div> <!-- /.site-header -->
 
     <table class="table table-dark table-hover">
         <tr>
@@ -147,21 +154,32 @@
             <th>
                 @Html.DisplayNameFor(model => model.TripDate)
             </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.TripDestination)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AgencyName)
+                @Html.DisplayNameFor(model => model.TripImage)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TripImage)
+                @Html.DisplayNameFor(model => model.Post_Like)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Post_DisLike)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgencyName)
             </th>
             <th></th>
         </tr>
 
         @foreach (var item in Model)
         {
+        <tbody id="myTable">
+
+
             <tr>
+
                 <td>
                     @Html.DisplayFor(modelItem => item.TripTitle)
                 </td>
@@ -182,12 +200,26 @@
                 </td>
 
                 <td>
-                    <img src="@Url.Content(item.TripImage)" width="150" height="150" class="img-fluid img-thumbnail">
+                    @Html.DisplayFor(modelItem => item.Post_Like)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Post_DisLike)
                 </td>
 
+                <td>
+                    <img src="@Url.Content(item.TripImage)" width="150" height="150" class="img-fluid img-thumbnail">
+                </td>
+                <td>
+                    @Html.ActionLink("Like", "Like", new { id = item.ID }) |
+                    @Html.ActionLink("DisLike", "DisLike", new { id = item.ID }) |
+                    @Html.ActionLink("Save", "Save", new { id = item.ID }) |
+                </td>
             </tr>
-        }
+        </tbody>
+                }
 
-    </table>
+        </table>
+
+   
 </body>
 </html>

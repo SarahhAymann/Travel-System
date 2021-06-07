@@ -15,6 +15,8 @@ namespace Travel.Models
         public string TripDetails { get; set; }
         public DateTime PostDate { get; set; }
         public DateTime TripDate { get; set; }
+        public int Post_Like { get; set; }
+        public int Post_DisLike { get; set; }
 
         public string TripDestination { get; set; }
         public string AgencyName { get; set; }

@@ -164,7 +164,6 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AgencyController.cs" />
     <Compile Include="Controllers\homeController.cs" />
-    <Compile Include="Controllers\TravellersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -244,15 +243,28 @@
     <Compile Include="Migrations\202106061811395_PhotoInTraveller.designer.cs">
       <DependentUpon>202106061811395_PhotoInTraveller.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106062156405_DropTraveller.cs" />
+    <Compile Include="Migrations\202106062156405_DropTraveller.designer.cs">
+      <DependentUpon>202106062156405_DropTraveller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106062159026_DropagencyTable.cs" />
+    <Compile Include="Migrations\202106062159026_DropagencyTable.designer.cs">
+      <DependentUpon>202106062159026_DropagencyTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106062201003_DropAdmin.cs" />
+    <Compile Include="Migrations\202106062201003_DropAdmin.designer.cs">
+      <DependentUpon>202106062201003_DropAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106070341234_EditTable.cs" />
+    <Compile Include="Migrations\202106070341234_EditTable.designer.cs">
+      <DependentUpon>202106070341234_EditTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Agencies.cs" />
-    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\PostsRequests.cs" />
     <Compile Include="Models\TripPosts.cs" />
     <Compile Include="Controllers\TripPostsController.cs" />
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Models\MyDbContext .cs" />
-    <Compile Include="Models\Traveller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -329,17 +341,9 @@
     <Content Include="Content\sass\styles.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\Traveller.cshtml" />
-    <Content Include="Views\home\Index.cshtml" />
     <Content Include="Views\config.rb" />
     <Content Include="Views\Shared\Admin.cshtml" />
     <Content Include="Views\Admin\AdminIndex.cshtml" />
-    <Content Include="Views\Admin\ViewTraveller.cshtml" />
-    <Content Include="Views\Admin\CreateTraveller.cshtml" />
-    <Content Include="Views\Admin\DeleteTraveller.cshtml" />
-    <Content Include="Views\Admin\ViewAgency.cshtml" />
-    <Content Include="Views\Admin\CreateAgency.cshtml" />
-    <Content Include="Views\Admin\DeleteAgency.cshtml" />
-    <Content Include="Views\Admin\UsersPage.cshtml" />
     <Content Include="Views\home\Login.cshtml" />
     <Content Include="Views\home\Register.cshtml" />
     <Content Include="Views\Admin\ShowProfile.cshtml" />
@@ -356,6 +360,12 @@
     <Content Include="Views\Admin\CreateTripPost.cshtml" />
     <Content Include="Views\Admin\EditTripPost.cshtml" />
     <Content Include="Views\Admin\DeleteTripPost.cshtml" />
+    <Content Include="Views\Admin\CreateUser.cshtml" />
+    <Content Include="Views\Admin\ViewUsers.cshtml" />
+    <Content Include="Views\Admin\DeleteUsers.cshtml" />
+    <Content Include="Views\Agency\ShowAgencyProfile.cshtml" />
+    <Content Include="Views\home\Index.cshtml" />
+    <Content Include="Views\home\ShowAfterLogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -424,6 +434,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106061811395_PhotoInTraveller.resx">
       <DependentUpon>202106061811395_PhotoInTraveller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106062156405_DropTraveller.resx">
+      <DependentUpon>202106062156405_DropTraveller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106062159026_DropagencyTable.resx">
+      <DependentUpon>202106062159026_DropagencyTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106062201003_DropAdmin.resx">
+      <DependentUpon>202106062201003_DropAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106070341234_EditTable.resx">
+      <DependentUpon>202106070341234_EditTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

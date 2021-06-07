@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="templatemo">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" href=@Url.Content("/Content/css/bootstrap.css")>
     <link rel="stylesheet" href=@Url.Content("/Content/css/bootstrap.css")>
     <link rel="stylesheet" href=@Url.Content("/Content/css/bootstrap.min.css")>
     <link rel="stylesheet" href=@Url.Content("/Content/css/font-awesome.css")>
@@ -96,19 +96,15 @@
                     </div>
                     <div class="sidebar-header">
                         <div class="user-pic">
-                            <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+                            <img class="img-responsive img-rounded" src="@Url.Content(Session["UserImage"].ToString())"
                                  alt="User picture">
                         </div>
                         <div class="user-info">
                             <span class="user-name">
-                                Jhon
-                                <strong>Smith</strong>
+                                @Session["UserName"]
                             </span>
-                            <span class="user-role">Administrator</span>
-                            <span class="user-status">
-                                <i class="fa fa-circle"></i>
-                                <span>Online</span>
-                            </span>
+                            <span class="user-role"> @Session["UserRole"] </span>
+                           
                         </div>
                     </div>
                     <!-- sidebar-header  -->
@@ -116,9 +112,9 @@
                     <div class="sidebar-menu">
                         <ul>
 
-                            <li><a href="Profile.html">Profile</a></li>
-                            <li><a href="MyPosts.html">My Posts</a></li>
-                            <li><a .href='@Url.Action("CreateTripPostRequest", "Agency" )'>Create New Post</a></li>
+                            <li><a href='@Url.Action("ShowAgencyProfile", "Agency" )'>Profile</a></li>
+                            <li><a  href="RecivedQuestions.html">My Posts</a></li>
+                            <li><a href='@Url.Action("CreateTripPostRequest", "Agency" )'>Create New Post</a></li>
                             <li><a href="RecivedQuestions.html">Recieved Questions</a></li>
                         </ul>
                     </div>

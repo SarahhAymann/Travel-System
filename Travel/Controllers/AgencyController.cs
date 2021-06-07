@@ -11,14 +11,24 @@ namespace Travel.Controllers
     public class AgencyController : Controller
 
     {
+
+
         private MyDbContext db = new MyDbContext();
         // GET: Agency
         public ActionResult Index()
         {
             return View();
         }
+
+
+        public ActionResult ShowAgencyProfile()
+        {
+            return View();
+        }
+
+
         // GET: TripPosts/Create
-        public ActionResult Create()
+        public ActionResult CreateTripPostRequest()
         {
             return View();
         }
@@ -48,4 +58,22 @@ namespace Travel.Controllers
             return View(requests);
         }
     }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
