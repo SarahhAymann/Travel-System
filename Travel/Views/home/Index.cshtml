@@ -134,60 +134,64 @@
 
 
     <table class="table table-dark table-hover">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TripTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TripDetails)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PostDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TripDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TripDestination)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AgencyName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TripImage)
-            </th>
-            <th></th>
-        </tr>
+        <thead>
 
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TripTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TripDetails)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TripDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TripDestination)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AgencyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TripImage)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TripTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TripDetails)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PostDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TripDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TripDestination)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AgencyName)
-                </td>
+            <tbody id="myTable">
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TripTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TripDetails)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PostDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TripDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TripDestination)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AgencyName)
+                    </td>
 
-                <td>
-                    <img src="@Url.Content(item.TripImage)" width="150" height="150" class="img-fluid img-thumbnail">
-                </td>
+                    <td>
+                        <img src="@Url.Content(item.TripImage)" width="150" height="150" class="img-fluid img-thumbnail">
+                    </td>
 
-            </tr>
-        }
+                </tr>
+                 </tbody>
+                }
 
-    </table>
+        </table>
 </body>
 </html>

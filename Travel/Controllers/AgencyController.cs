@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Travel.Models;
@@ -25,6 +27,9 @@ namespace Travel.Controllers
         {
             return View();
         }
+
+        
+    
 
 
         // GET: TripPosts/Create
@@ -56,6 +61,43 @@ namespace Travel.Controllers
             }
 
             return View(requests);
+        }
+
+
+        public ActionResult EditProfile(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            UserInfo user = db.users.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProfile(UserInfo user)
+        {
+            if (ModelState.IsValid)
+            {
+               
+                string fileName = Path.GetFileNameWithoutExtension(user.ImageFile.FileName);
+                string extension = Path.GetExtension(user.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                user.Image = "~/Image/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
+                user.ImageFile.SaveAs(fileName);
+
+                db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ViewTraveller");
+            }
+            return View(user);
         }
     }
 
