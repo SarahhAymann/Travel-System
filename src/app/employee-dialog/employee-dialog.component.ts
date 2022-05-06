@@ -51,7 +51,7 @@ export class EmployeeDialogComponent implements OnInit {
       .subscribe({
         next:(res)=>{
           alert("Employee added successfully");
-          this.empForm.reset();\
+          this.empForm.reset();
           this.dialog.close("Saved");
         },
         error:()=>{
