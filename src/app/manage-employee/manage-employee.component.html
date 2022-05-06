@@ -1,0 +1,93 @@
+<!--<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>supervised_user_circle</mat-icon>
+    </button>
+    <span>REAL ESTATE</span>
+   <span class="example-spacer"></span>
+    <button mat-raised-button color="warn" (click)="openDialog()">Add</button>
+  
+  </mat-toolbar>
+  -->
+
+<div class="container">
+  <div style="margin-top: 10px;">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+          <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        </ng-container>
+
+        <!-- Role Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+          <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+        </ng-container>
+
+        <!-- Access Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Access On Price Predection page </th>
+          <td mat-cell *matCellDef="let row"> {{row.price_prediction}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="sell">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Access On Sell Page</th>
+          <td mat-cell *matCellDef="let row"> {{row.sell}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="analyze">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Access On Analysis</th>
+          <td mat-cell *matCellDef="let row"> {{row.analyze}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="manageEmp">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Access On Employees</th>
+          <td mat-cell *matCellDef="let row"> {{row.manage_employees}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="manageProprtery">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Access On Properties</th>
+          <td mat-cell *matCellDef="let row"> {{row.manage_properties}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="manageConst">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Access On Constraints</th>
+          <td mat-cell *matCellDef="let row"> {{row.manage_constraints}} </td>
+        </ng-container>
+
+       
+
+        
+
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="editEmp(row)" color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button (click)="deleteEmp(row.id)" mat-icon-button color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+
+  </div>
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="primary" (click)="openDialog()" style="margin-left: 1060px; width: 10%;">
+    Add
+  </button>
+</div>
